@@ -1,0 +1,44 @@
+# Logs
+logs
+*.log
+
+# Dependencies
+node_modules/
+
+# Build files
+build/
+dist/
+out/
+*.out
+
+# Environment variables and sensitive data
+.env
+.env.local
+.env.*.local
+.env.*.production
+.env.production
+
+# Debugging and profiling
+node_modules/
+pids
+*.pid
+*.seed
+*.pid.lock
+lib-cov
+coverage
+.nyc_output
+
+# IDE files
+.vscode/
+.idea/
+
+# Compiled binary addons
+node_modules/
+*.node
+
+# Output of 'npm pack'
+*.tgz
+
+# Yarn
+yarn-error.log
+yarn.lock
