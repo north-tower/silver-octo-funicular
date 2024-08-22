@@ -18,7 +18,7 @@ const path = require("path")
 
 const corsOptions = {
   // origin: 'https://dom-shop-frontend.vercel.app',
-  origin: 'https://fir-upload-a9558.web.app',
+  origin: 'http://localhost:3000',
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   credentials: true
 };
