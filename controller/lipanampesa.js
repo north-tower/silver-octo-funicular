@@ -18,7 +18,7 @@ exports.initiateSTKPush = async (req, res) => {
     const timestamp = getTimestamp();
     const password = new Buffer.from(process.env.BUSINESS_SHORT_CODE + process.env.PASS_KEY + timestamp).toString('base64');
 
-    const callback_url = await ngrok.connect(process.env.PORT);
+    const callback_url = 'https://studious-socket.vercel.app';
     const api = ngrok.getApi();
     await api.listTunnels();
 
