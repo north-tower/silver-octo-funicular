@@ -5,7 +5,8 @@ const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const path = require("path")
-// app.use(cors())
+
+app.use(cors())
 
 // app.use(cors({
   // origin: 'http://localhost:3000',
