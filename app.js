@@ -18,7 +18,7 @@ const path = require("path")
 
 const corsOptions = {
   // origin: 'https://dom-shop-frontend.vercel.app',
-  origin: 'http://localhost:3000',
+  origin: 'https://silver-octo-funicular-delta.vercel.app',
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   credentials: true
 };
