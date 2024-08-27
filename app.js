@@ -19,7 +19,7 @@ app.use(cors())
 
 const corsOptions = {
   // origin: 'https://dom-shop-frontend.vercel.app',
-  origin: 'http://localhost:3000',
+  origin: 'https://fir-upload-a9558.web.app',
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   credentials: true
 };
