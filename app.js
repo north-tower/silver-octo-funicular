@@ -4,31 +4,28 @@ const app = express();
 const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
 const cors = require("cors");
-const path = require("path")
+const path = require("path");
 
-app.use(cors())
-
-// app.use(cors({
-  // origin: 'http://localhost:3000',
-  // origin: 'http://localhost:3002',
-  // origin: 'https://dev1418.dyx5onyra3kmc.amplifyapp.com',
-  // origin: 'https://dom-shop-frontend.vercel.app/',
-  // origin: 'https://dev.d2hcfczghr77rw.amplifyapp.com/',
-  // credentials: true
-// }));
-
+// CORS options configuration
 const corsOptions = {
-  // origin: 'https://dom-shop-frontend.vercel.app',
-  origin: 'https://fir-upload-a9558.web.app',
+  origin: [
+    'http://localhost:3000', 
+    'http://localhost:3002', 
+    'https://dev1418.dyx5onyra3kmc.amplifyapp.com',
+    'https://dom-shop-frontend.vercel.app',
+    'https://dev.d2hcfczghr77rw.amplifyapp.com',
+    'https://fir-upload-a9558.web.app'
+  ],
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   credentials: true
 };
 
+// Apply CORS middleware globally
 app.use(cors(corsOptions));
 
 app.use(express.json());
 app.use(cookieParser());
-app.use("/", express.static(path.join(__dirname,"./uploads")))
+app.use("/", express.static(path.join(__dirname, "./uploads")));
 app.use("/test", (req, res) => {
   res.send("Hello world!");
 });
@@ -42,7 +39,7 @@ if (process.env.NODE_ENV !== "PRODUCTION") {
   });
 }
 
-// import routes
+// Import routes
 const user = require("./controller/user");
 const shop = require("./controller/shop");
 const product = require("./controller/product");
@@ -55,6 +52,7 @@ const message = require("./controller/message");
 const withdraw = require("./controller/withdraw");
 const lipaNaMpesaRoutes = require('./routes/lipanampesa.js');
 
+// Register routes
 app.use("/api/v2/user", user);
 app.use("/api/v2/conversation", conversation);
 app.use("/api/v2/message", message);
@@ -67,7 +65,7 @@ app.use("/api/v2/payment", payment);
 app.use("/api/v2/withdraw", withdraw);
 app.use('/api/v2/mpesa', lipaNaMpesaRoutes);
 
-// it's for ErrorHandling
+// Error Handling Middleware
 app.use(ErrorHandler);
 
 module.exports = app;
