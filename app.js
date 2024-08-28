@@ -32,7 +32,7 @@ app.use("/test", (req, res) => {
 
 app.use(bodyParser.urlencoded({ extended: true, limit: "50mb" }));
 
-// config
+// Config
 if (process.env.NODE_ENV !== "PRODUCTION") {
   require("dotenv").config({
     path: "config/.env",
@@ -51,6 +51,7 @@ const conversation = require("./controller/conversation");
 const message = require("./controller/message");
 const withdraw = require("./controller/withdraw");
 const lipaNaMpesaRoutes = require('./routes/lipanampesa.js');
+const category = require("./controller/category"); // Import the Category controller
 
 // Register routes
 app.use("/api/v2/user", user);
@@ -64,6 +65,7 @@ app.use("/api/v2/coupon", coupon);
 app.use("/api/v2/payment", payment);
 app.use("/api/v2/withdraw", withdraw);
 app.use('/api/v2/mpesa', lipaNaMpesaRoutes);
+app.use("/api/v2/category", category); // Register the Category routes
 
 // Error Handling Middleware
 app.use(ErrorHandler);
